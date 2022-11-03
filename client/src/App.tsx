@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-
+import fetchData from './components/fetchData';
 function App() {
-
+  /*
   const [backendData, setBackendData] = useState(Object);
 
   useEffect(() => {
@@ -13,7 +13,9 @@ function App() {
       }
     )
   }, []);
+  */
 
+  /*
   return (
     <div>
       {backendData.users ? (
@@ -25,6 +27,11 @@ function App() {
       )}
     </div>
   );
+  */
+ fetchData();
+ return (
+  <div>Hello</div>
+ )
 }
 
 export default App;
