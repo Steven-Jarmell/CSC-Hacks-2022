@@ -1,37 +1,34 @@
 import React, { useEffect, useState } from 'react'
-import fetchData from './components/fetchData';
 function App() {
-  /*
-  const [backendData, setBackendData] = useState(Object);
+  
+  const [backendData, setBackendData] = useState<string>('');
+  const URL = 'https://raw.githubusercontent.com/pittcsc/Summer2023-Internships/dev/README.md';
 
   useEffect(() => {
-    fetch("/api").then(
-      response => {return response.json()}
+    fetch(URL).then(
+      response => {return response.text()}
     ).then(
       data => {
-        setBackendData(data);
+        let splitData = data.substring(data.indexOf("Akuna")-1)
+        splitData = splitData.substring(0, splitData.indexOf('<!--')-4)
+        setBackendData(splitData);
       }
     )
   }, []);
-  */
 
-  /*
+  // [Name Of Company](link to company)? | Location | Description
+  
+  
   return (
     <div>
-      {backendData.users ? (
-        backendData["users"].map((user: number, i: number) => {
-          return <p key={i}>{user}</p>
-        })
+      {backendData ? (
+        <p>{backendData}</p>
       ) : (
         "Loading..."
       )}
     </div>
   );
-  */
- fetchData();
- return (
-  <div>Hello</div>
- )
+  
 }
 
 export default App;
