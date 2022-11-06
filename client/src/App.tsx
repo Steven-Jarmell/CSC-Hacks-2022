@@ -10,14 +10,13 @@ function App() {
     ).then(
       data => {
         let splitData = data.substring(data.indexOf("Akuna")-1)
-        splitData = splitData.substring(0, splitData.indexOf('<!--')-4)
+        splitData = splitData.substring(0, splitData.indexOf('<!--') - 4)
         setBackendData(splitData);
       }
     )
   }, []);
 
   // [Name Of Company](link to company)? | Location | Description
-  
   
   return (
     <div>
