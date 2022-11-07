@@ -1,11 +1,4 @@
-type Props = {
-	companyName: string;
-	link: string;
-	locations: string[];
-	description: string;
-	sponsorship: string;
-	status: boolean;
-};
+import { JobEntry } from "../Types/JobEntry"
 
 const JobPosting = ({
 	companyName,
@@ -14,7 +7,7 @@ const JobPosting = ({
 	description,
 	sponsorship,
 	status,
-}: Props) => {
+}: JobEntry) => {
 	return (
 		<div className="job-posting-container">
 			{/* Add header with a link to job if available, else just list job name */}

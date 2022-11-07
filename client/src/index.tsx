@@ -10,19 +10,6 @@ const root = ReactDOM.createRoot(
 );
 
 root.render(
-	/*
-	<JobPosting
-		companyName={"Amazon Robotics"}
-		link={
-			"https://www.amazon.jobs/en/jobs/1999770/amazon-robotics-software-development-engineer-sde-intern-summer-2023"
-		}
-		locations={["Boston, MA"]}
-		description={"Software Development Engineer"}
-		sponsorship={"No Information"}
-		status={true}
-	/>
-	*/
-	
 	<App />
 );
 

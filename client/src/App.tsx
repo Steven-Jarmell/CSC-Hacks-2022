@@ -1,13 +1,5 @@
 import { useEffect, useState } from "react";
-
-type JobEntry = {
-	companyName: string;
-	link: string;
-	locations: string[];
-	description: string;
-	sponsorship: string;
-	status: boolean;
-};
+import { JobEntry } from "./Types/JobEntry";
 
 function App() {
 	const [backendData, setBackendData] = useState<JobEntry[]>([]);
