@@ -16,18 +16,18 @@ const JobPosting = ({
 	status,
 }: Props) => {
 	return (
-		<div>
+		<div className="job-posting-container">
 			{/* Add header with a link to job if available, else just list job name */}
-			<div>
+			<div className="job-posting-header">
 				{status && <a href={link}>{companyName}</a>}
 				{!status && <p>{companyName}</p>}
 			</div>
-			<div>
+			<div className="job-posting-body">
                 {/* If theres more than 1 location, map through the list, else display the one*/}
 				{locations.length > 1 ? (
                     <div>
                         <p>Locations:</p>
-                        <ul>
+                        <ul className="job-posting-list">
                             {locations.map((location, i) => (
                                 <li key={i}>{location}</li>
                             ))}
