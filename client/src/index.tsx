@@ -8,7 +8,9 @@ import JobPosting from "./Components/JobPosting";
 const root = ReactDOM.createRoot(
 	document.getElementById("root") as HTMLElement
 );
+
 root.render(
+	/*
 	<JobPosting
 		companyName={"Amazon Robotics"}
 		link={
@@ -19,6 +21,9 @@ root.render(
 		sponsorship={"No Information"}
 		status={true}
 	/>
+	*/
+	
+	<App />
 );
 
 // If you want to start measuring performance in your app, pass a function
