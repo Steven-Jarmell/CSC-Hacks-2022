@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap');
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.job-posting-container {
+    margin-top: 20px;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 50%;
+    border: 1px solid #003594;
+    border-radius: 10px;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.job-posting-header {
+    text-align: center;
+    font-size: 25px;
+}
+
+.job-posting-body {
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.job-posting-list {
+}
+
+.job-posting-subtitle {
+    font-weight: bold;
+}
+
+.job-posting-status-closed {
+    color: #EB4740;
+}
+
+.job-posting-status-open {
+    color: #36A456;
+}
+
+.job-posting-company {
+    text-decoration: none;
+    color: black;
+}
