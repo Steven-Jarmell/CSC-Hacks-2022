@@ -111,23 +111,26 @@ function App() {
 	}, []);
 
 	return (
-		<div className="all-jobs-container">
-			{backendData
-				? backendData.map((entry, i) => (
-						<React.Fragment key={i}>
-							{
-								<JobPosting
-									companyName={entry.companyName}
-									link={entry.link}
-									status={entry.status}
-									locations={entry.locations}
-									sponsorship={entry.sponsorship}
-									description={entry.description}
-								/>
-							}
-						</React.Fragment>
-				  ))
-				: "Loading..."}
+		<div className="job-postings-container">
+			<h3 className="job-postings-filter">Filters: None</h3>
+			<div className="all-jobs-container">
+				{backendData
+					? backendData.map((entry, i) => (
+							<React.Fragment key={i}>
+								{
+									<JobPosting
+										companyName={entry.companyName}
+										link={entry.link}
+										status={entry.status}
+										locations={entry.locations}
+										sponsorship={entry.sponsorship}
+										description={entry.description}
+									/>
+								}
+							</React.Fragment>
+					  ))
+					: "Loading..."}
+			</div>
 		</div>
 	);
 }
