@@ -3,8 +3,7 @@ html, body {
     width: 100;
 }
 
-.app-container {
-    display: flex;
-    flex-wrap: wrap;
-
+.all-jobs-container {
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
 }

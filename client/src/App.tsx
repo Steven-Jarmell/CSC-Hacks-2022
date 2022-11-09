@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import JobPosting from "./Components/JobPosting";
 import { JobEntry } from "./Types/JobEntry";
 import "./App.css";
@@ -111,10 +111,10 @@ function App() {
 	}, []);
 
 	return (
-		<div>
+		<div className="all-jobs-container">
 			{backendData
 				? backendData.map((entry, i) => (
-						<div key={i}>
+						<React.Fragment key={i}>
 							{
 								<JobPosting
 									companyName={entry.companyName}
@@ -125,7 +125,7 @@ function App() {
 									description={entry.description}
 								/>
 							}
-						</div>
+						</React.Fragment>
 				  ))
 				: "Loading..."}
 		</div>
