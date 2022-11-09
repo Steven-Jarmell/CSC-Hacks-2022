@@ -1,0 +1,9 @@
+html, body {
+    height: 100;
+    width: 100;
+}
+
+.all-jobs-container {
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+}
