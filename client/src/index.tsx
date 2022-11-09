@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import JobPosting from "./Components/JobPosting";
+import Header from "./Components/Header";
 
 const root = ReactDOM.createRoot(
 	document.getElementById("root") as HTMLElement
@@ -11,6 +11,7 @@ const root = ReactDOM.createRoot(
 
 root.render(
 	<React.StrictMode>
+		<Header />
 		<App/>
 	</React.StrictMode>
 );
