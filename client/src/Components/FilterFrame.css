@@ -1,7 +1,7 @@
 /* Frame + Header Styling */
 #form-container {
   background-color: var(--light-yellow);
-  width: 20vw;
+  width: 18vw;
   height: calc(78vh + 1.7em);
   border-radius: 10px;
   align-items: center;
