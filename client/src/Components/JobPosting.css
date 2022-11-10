@@ -2,13 +2,13 @@
 
 .job-posting-container {
 	margin-top: 20px;
-	margin-left: 20px;
 	display: flex;
 	flex-direction: column;
 	padding: 20px;
-	border: 1px solid #003594;
+	border: 1px solid var(--blue);
 	border-radius: 10px;
-	background-color: #D9D9D9;
+	background-color: var(--job-posting);
+	height: 40vh;
 }
 
 .job-posting-header {
@@ -39,5 +39,5 @@
 
 .job-posting-company {
 	text-decoration: none;
-	color: black;
+	color: var(--black);
 }

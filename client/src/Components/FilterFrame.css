@@ -28,6 +28,7 @@
 /* Select menu styling */
 .select-container {
   text-align: center;
+  width: 90%;
 }
 
 .select-container h3 {
