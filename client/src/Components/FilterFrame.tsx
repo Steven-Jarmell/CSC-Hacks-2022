@@ -22,8 +22,8 @@ function FilterFrame() {
   return (
     //TODO: Add endpoint for filter post request
     <div id="form-container">
-      <h1 className="filter-title">Filter</h1>
-      <form action="" method="post" id="filter-form">
+      <form action="" method="" id="filter-form">
+        <h1 className="filter-title">Filter</h1>
         {filterData
           ? filterData.map((entry) => (
               <div className="select-container">
