@@ -17,6 +17,10 @@
 
 .header-title {
   flex-grow: 1;
-  text-align: center;
   font-size: 50px;
+  position: absolute;
+  top: 2.5vh;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
 }
