@@ -1,14 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap");
 
-html,
-body {
-	margin: 0;
-	padding: 0;
-	height: 100%;
-	width: 100%;
-	box-sizing: border-box;
-}
-
 .job-posting-container {
 	margin-top: 20px;
 	margin-left: 20px;
@@ -17,7 +8,7 @@ body {
 	padding: 20px;
 	border: 1px solid #003594;
 	border-radius: 10px;
-	font-family: "Titillium Web", sans-serif;
+	background-color: #D9D9D9;
 }
 
 .job-posting-header {
