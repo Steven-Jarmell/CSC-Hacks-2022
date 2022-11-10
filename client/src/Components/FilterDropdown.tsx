@@ -1,18 +1,23 @@
-import React, { PropsWithChildren } from "react";
-import "./FilterDropdown.module.css";
-import { FilterData } from "../Types/FilterData";
+import React from "react";
+import "./FilterDropdown.css";
 
-class FilterDropdown extends React.Component {
-  data: FilterData;
+class FilterDropdown extends React.Component<any> {
+  name: string;
+  options: string[];
 
   constructor(props: any) {
     super(props);
-    this.data = props.data;
+    this.name = props.name;
+    this.options = props.options;
   }
 
-  render() {
+  render(): React.ReactNode {
     return (
-      <select name={this.data.filterName} className="selectFilter"></select>
+      <select name={this.name} className="select">
+        {this.options.map((option) => (
+          <option value={option.toLowerCase()}>{option}</option>
+        ))}
+      </select>
     );
   }
 }

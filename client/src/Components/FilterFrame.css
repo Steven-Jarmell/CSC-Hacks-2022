@@ -1,0 +1,48 @@
+#form-container {
+  background-color: var(--light-yellow);
+  width: 37.5%;
+  height: calc(78vh + 1.7em);
+  border-radius: 10px;
+  align-items: center;
+}
+
+#filter-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: auto;
+}
+
+.filter-title {
+  margin: 8px;
+  text-align: center;
+  padding: 0;
+}
+
+/* Select menu styling */
+.select-container {
+  text-align: center;
+}
+
+.select-container select {
+  height: 80px;
+  width: 342px;
+  background-color: var(--theme-gray);
+  font-size: 24px;
+  border: none;
+  border-radius: 15px;
+  text-align: center;
+}
+
+/* Submit button styling */
+#form-submit {
+  background-color: var(--blue);
+  color: white;
+  border: none;
+  border-radius: 15px;
+  width: 180px;
+  height: 60px;
+  font-size: 24px;
+  margin: 8px;
+}
