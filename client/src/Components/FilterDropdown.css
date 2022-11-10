@@ -1,0 +1,10 @@
+.select-options {
+  width: 14vw;
+  height: 7vh;
+  background-color: var(--theme-gray);
+  font-size: 24px;
+  border: none;
+  border-radius: 15px;
+  text-align: center;
+  /* box-shadow: 0 3px 0 1px rgba(0, 0, 0, 20%); */
+}

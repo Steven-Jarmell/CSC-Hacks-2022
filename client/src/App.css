@@ -1,45 +1,57 @@
 @import url("https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap");
 
 * {
-    font-family: "Titillium Web", sans-serif;
+  font-family: "Titillium Web", sans-serif;
+}
+
+:root {
+  --blue: #003594;
+  --light-yellow: #ebbf65;
+  --theme-gray: #d9d9d9;
 }
 
 html,
 body {
-	margin: 0;
-	padding: 0;
-	height: 100%;
-	width: 100%;
-	box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#body-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 0px 45px;
 }
 
 .all-jobs-container {
-    display: grid;
-    grid-template-columns: 47% 47%;
-    overflow: auto;
-    width: 100%;
-    height: 78vh;
-    box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 47% 47%;
+  overflow: auto;
+  width: 100%;
+  height: 78vh;
+  box-sizing: border-box;
 }
 
 body {
-    overflow: hidden;
-    background-color: #DADADA;
-    padding-left: 15px;
-    padding-right: 15px;
+  overflow: hidden;
+  background-color: #dadada;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .job-postings-container {
-    display: flex;
-    flex-direction: column;
-    width: 60%;
-    background-color: #D2D2D2;
-    border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  background-color: #d2d2d2;
+  border-radius: 10px;
 }
 
 .job-postings-filter {
-    text-align: center;
-    padding: 0;
-    margin: 0;
-    border-bottom: 1px solid black;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  border-bottom: 1px solid black;
 }
