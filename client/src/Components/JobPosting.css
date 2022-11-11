@@ -1,43 +1,41 @@
 @import url("https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap");
 
 .job-posting-container {
-	margin-top: 20px;
-	display: flex;
-	flex-direction: column;
-	padding: 20px;
-	border: 1px solid var(--blue);
-	border-radius: 10px;
-	background-color: var(--job-posting);
-	height: 40vh;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border: 1px solid var(--blue);
+  border-radius: 10px;
+  background-color: var(--job-posting);
+  height: 40vh;
+  box-shadow: 0px 2px 0 1px rgba(0, 0, 0, 15%);
 }
 
 .job-posting-header {
-	text-align: center;
-	font-size: 25px;
+  text-align: center;
+  font-size: 25px;
 }
 
 .job-posting-body {
-	font-size: 15px;
-	display: flex;
-	flex-direction: column;
-}
-
-.job-posting-list {
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
 }
 
 .job-posting-subtitle {
-	font-weight: bold;
+  font-weight: bold;
 }
 
 .job-posting-status-closed {
-	color: #eb4740;
+  color: #eb4740;
 }
 
 .job-posting-status-open {
-	color: #36a456;
+  color: #36a456;
 }
 
 .job-posting-company {
-	text-decoration: none;
-	color: var(--black);
+  text-decoration: none;
+  color: var(--black);
 }

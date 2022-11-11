@@ -5,7 +5,7 @@
   height: calc(78vh + 1.7em);
   border-radius: 10px;
   align-items: center;
-  box-shadow: 0px 2px 0 1px rgba(0, 0, 0, 5%);
+  box-shadow: 0px 2px 0 1px rgba(0, 0, 0, 15%);
 }
 
 .filter-title {
