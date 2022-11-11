@@ -38,12 +38,12 @@ body {
   padding: 0 20px;
 }
 
-/* .all-jobs-container::-webkit-scrollbar {
+.all-jobs-container::-webkit-scrollbar {
   width: 0.25em;
 }
 
 .all-jobs-container::-webkit-scrollbar-track {
-  background-color: var(--job-posting-container-background);
+  background-color: rgba(0, 0, 0, 0%);
   border-radius: 100vw;
 }
 
@@ -51,7 +51,7 @@ body {
   background-color: var(--blue);
   border-radius: 100vw;
   border: 0.25em solid var(--blue);
-} */
+}
 
 body {
   overflow: hidden;
