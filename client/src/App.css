@@ -8,9 +8,9 @@
   --blue: #003594;
   --light-yellow: #ebbf65;
   --theme-gray: #d9d9d9;
-  --black : #000000;
+  --black: #000000;
   --job-posting-container-background: #d2d2d2;
-  --job-posting: #D9D9D9;
+  --job-posting: #d9d9d9;
 }
 
 html,
@@ -31,12 +31,27 @@ body {
 .all-jobs-container {
   display: grid;
   grid-template-columns: 47% 47%;
-  overflow: auto;
+  overflow: hidden auto;
   width: 100%;
   box-sizing: border-box;
   justify-content: space-around;
-  padding: 0 20px
+  padding: 0 20px;
 }
+
+/* .all-jobs-container::-webkit-scrollbar {
+  width: 0.25em;
+}
+
+.all-jobs-container::-webkit-scrollbar-track {
+  background-color: var(--job-posting-container-background);
+  border-radius: 100vw;
+}
+
+.all-jobs-container::-webkit-scrollbar-thumb {
+  background-color: var(--blue);
+  border-radius: 100vw;
+  border: 0.25em solid var(--blue);
+} */
 
 body {
   overflow: hidden;
@@ -51,8 +66,9 @@ body {
   width: 60%;
   background-color: var(--job-posting-container-background);
   border-radius: 10px;
-  flex-grow: .9;
+  flex-grow: 0.9;
   max-height: calc(78vh + 1.5em);
+  box-shadow: 0px 2px 0 1px rgba(0, 0, 0, 5%);
 }
 
 .job-postings-filter {
