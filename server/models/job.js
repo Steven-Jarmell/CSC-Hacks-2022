@@ -4,27 +4,27 @@ const Schema = mongoose.Schema;
 const JobSchema = new Schema({
   companyName: {
     type: String,
-    required: true,
+    required: false,
   },
   link: {
     type: String,
-    required: true,
+    required: false,
   },
   locations: {
     type: String,
-    required: true,
+    required: false,
   },
   description: {
     type: String,
-    required: true,
+    required: false,
   },
   sponsorship: {
     type: String,
-    required: true,
+    required: false,
   },
   status: {
     type: Boolean,
-    required: true,
+    required: false,
   },
 });
 // Create model for todo

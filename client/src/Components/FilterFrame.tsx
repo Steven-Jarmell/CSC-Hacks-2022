@@ -25,8 +25,8 @@ function FilterFrame() {
       <form action="" method="" id="filter-form">
         <h1 className="filter-title">Filter</h1>
         {filterData
-          ? filterData.map((entry) => (
-              <div className="select-container">
+          ? filterData.map((entry, i) => (
+              <div key={i} className="select-container">
                 <h3>{entry.filterName}</h3>
                 <FilterDropdown
                   name={entry.filterName}
