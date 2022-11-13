@@ -15,8 +15,8 @@ class FilterDropdown extends React.Component<any> {
     return (
       <select name={this.name} className="select-options">
         <option value="">Select...</option>
-        {this.options.map((option) => (
-          <option value={option.toLowerCase()}>{option}</option>
+        {this.options.map((option, i) => (
+          <option key={i} value={option.toLowerCase()}>{option}</option>
         ))}
       </select>
     );
