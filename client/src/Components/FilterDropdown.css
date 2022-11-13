@@ -1,10 +1,10 @@
 .select-options {
-  width: 100%;
+  width: 16vw;
   height: 7vh;
   background-color: var(--theme-gray);
   font-size: 16px;
   border: none;
   border-radius: 15px;
   text-align: center;
-  /* box-shadow: 0 3px 0 1px rgba(0, 0, 0, 20%); */
+  box-shadow: 0px 2px 0 1px rgba(0, 0, 0, 15%);
 }

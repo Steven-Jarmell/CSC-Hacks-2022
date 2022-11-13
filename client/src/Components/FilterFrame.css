@@ -1,11 +1,11 @@
 /* Frame + Header Styling */
 #form-container {
   background-color: var(--light-yellow);
-  width: 20vw;
-  height: calc(78vh + 1.7em);
+  width: 18vw;
+  height: calc(78vh + 1.5em);
   border-radius: 10px;
   align-items: center;
-  box-shadow: 0px 2px 0 1px rgba(0, 0, 0, 5%);
+  box-shadow: 0px 2px 0 1px rgba(0, 0, 0, 15%);
 }
 
 .filter-title {
@@ -17,7 +17,7 @@
 
 /* Form Styling */
 #filter-form {
-  height: calc(78vh + 1.7em);
+  height: calc(78vh + 1.5em);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
