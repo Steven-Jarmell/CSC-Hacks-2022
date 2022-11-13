@@ -106,7 +106,6 @@ function App() {
           // Add job to the list
           allJobs.push(curEntry);
         }
-
         setBackendData(allJobs);
       });
   }, []);
