@@ -1,5 +1,6 @@
 import { JobEntry } from "../Types/JobEntry";
 import "./JobPosting.css";
+import { FiExternalLink } from 'react-icons/fi'
 
 const JobPosting = ({
 	companyName,
@@ -16,6 +17,7 @@ const JobPosting = ({
 				{status && (
 					<a className="job-posting-company" href={link}>
 						{companyName}
+						<FiExternalLink />
 					</a>
 				)}
 				{!status && <p className="job-posting-company">{companyName}</p>}

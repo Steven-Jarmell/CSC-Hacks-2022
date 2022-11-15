@@ -39,4 +39,8 @@
 .job-posting-company {
   text-decoration: none;
   color: var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5vw;
 }
