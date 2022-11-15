@@ -6,6 +6,7 @@ import dotenv from "dotenv";
 import schedule from "node-schedule";
 import Job from "./models/job.js";
 import parseDocument from "./util/parseDocument.js";
+import addFilter from "./util/addFilter.js";
 
 dotenv.config();
 
@@ -51,15 +52,19 @@ const updateJob = schedule.scheduleJob("0 0 0 * * *", async () => {
     let locations = curJob.locations;
     let description = curJob.description;
     let sponsorship = curJob.sponsorship;
-
-    const newJob = new Job({
+    let job = {
       companyName,
       link,
       locations,
       description,
       sponsorship,
       status,
-    });
+    };
+
+    // Will be implemented in the future to have dynamic filters
+    addFilter(job);
+
+    const newJob = new Job(job);
 
     newJob
       .save()
