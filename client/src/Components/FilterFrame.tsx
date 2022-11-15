@@ -3,12 +3,13 @@ import { FilterData } from "../Types/FilterData";
 import FilterDropdown from "./FilterDropdown";
 import "./FilterFrame.css";
 
-function FilterFrame() {
+const FilterFrame = () => {
   // Get filters object from API here and then use each filter type to create our filters
   const [filterData, setFilterData] = useState<FilterData[]>([]);
 
   const URL = "/Filters.json";
 
+  // Use fetch because this will later be used dynamically
   useEffect(() => {
     fetch(URL)
       .then((response) => {
@@ -40,6 +41,6 @@ function FilterFrame() {
       </form>
     </div>
   );
-}
+};
 
 export default FilterFrame;
