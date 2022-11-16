@@ -4,7 +4,14 @@ import "./Filter.css";
 type Props = { name: string };
 
 const Filter = ({ name }: Props) => {
-  return <span className="active-filter-item">{name}</span>;
+  return (
+    <div className="button-container">
+      <div className="button-content">
+        <div className="active-filter-item">{name}</div>
+        <div className="close-button">X</div>
+      </div>
+    </div>
+  );
 };
 
 export default Filter;
