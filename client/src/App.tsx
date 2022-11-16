@@ -3,14 +3,11 @@ import JobPosting from "./Components/JobPosting";
 import { JobEntry } from "./Types/JobEntry";
 import FilterFrame from "./Components/FilterFrame";
 import Filter from "./Components/Filter";
-import { ActiveFilters } from "./Types/ActiveFilters";
 import "./App.css";
 
 function App() {
   const [backendData, setBackendData] = useState<JobEntry[]>([]);
-  const [activeFilters, setactiveFilters] = useState<ActiveFilters>(
-    {} as ActiveFilters
-  );
+  const [activeFilters, setActiveFilters] = useState<string[]>([]);
 
   const URL = "http://localhost:5000/api/jobs";
 
@@ -25,14 +22,21 @@ function App() {
       });
   }, []);
 
+  // Filter jobs data whenever activeFilters is modified
+  useEffect(() => {}, [activeFilters]);
+
   return (
     <div id="body-container">
       <div className="job-postings-container">
         <div id="active-filters-container">
-          {activeFilters === ({} as ActiveFilters) ? (
-            Object.values(activeFilters).map((name) => (
-              <React.Fragment>
-                <Filter name={name}></Filter>
+          {activeFilters ? (
+            activeFilters.map((name, i) => (
+              <React.Fragment key={i}>
+                <Filter
+                  name={name}
+                  setActiveFilters={setActiveFilters}
+                  activeFilters={activeFilters}
+                ></Filter>
               </React.Fragment>
             ))
           ) : (
