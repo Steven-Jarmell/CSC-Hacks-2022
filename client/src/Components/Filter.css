@@ -1,0 +1,16 @@
+.active-filter-item {
+  background-color: var(--blue);
+  color: white;
+  font-size: 24px;
+  display: inline-block;
+  padding: 5px 20px;
+  margin: 5px 10px;
+  border-radius: 5px;
+  transition: all 0.2s ease-in-out;
+}
+
+.active-filter-item:hover {
+  color: var(--black);
+  background-color: var(--red);
+  cursor: pointer;
+}

@@ -9,7 +9,7 @@ type Props = {
   setBackendData: React.Dispatch<React.SetStateAction<JobEntry[]>>;
 };
 
-function FilterFrame({ backendData, setBackendData }: Props) {
+const FilterFrame = ({ backendData, setBackendData }: Props) => {
   // Get filters object from API here and then use each filter type to create our filters
   const [filterData, setFilterData] = useState<FilterData[]>([]);
 
@@ -96,6 +96,6 @@ function FilterFrame({ backendData, setBackendData }: Props) {
       </form>
     </div>
   );
-}
+};
 
 export default FilterFrame;
