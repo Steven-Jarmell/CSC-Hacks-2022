@@ -1,26 +1,30 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { JobEntry } from "../Types/JobEntry";
 import "./FilterDropdown.css";
 
-class FilterDropdown extends React.Component<any> {
-  name: string;
-  options: string[];
+type Props = {
+	name: string;
+	options: string[];
+	formInput: React.Dispatch<React.SetStateAction<string>>;
+	backendData?: JobEntry[];
+};
 
-  constructor(props: any) {
-    super(props);
-    this.name = props.name;
-    this.options = props.options;
-  }
-
-  render(): React.ReactNode {
-    return (
-      <select name={this.name} className="select-options">
-        <option value="">Select...</option>
-        {this.options.map((option, i) => (
-          <option key={i} value={option.toLowerCase()}>{option}</option>
-        ))}
-      </select>
-    );
-  }
-}
+const FilterDropdown = ({ name, options, formInput, backendData }: Props) => {
+	useEffect(() => {}, [backendData]);
+	return (
+		<select
+			name={name}
+			className="select-options"
+			onChange={(event) => formInput(event.target.value)}
+		>
+			<option value="">Select...</option>
+			{options.map((option, i) => (
+				<option key={i} value={option.toLowerCase()}>
+					{option}
+				</option>
+			))}
+		</select>
+	);
+};
 
 export default FilterDropdown;
