@@ -62,7 +62,7 @@
   },
   {
     "filterName": "Job Description",
-    "options": ["Software Engineer", "Data Scienctist", "Data Analyst"]
+    "options": ["Software Engineer", "Data Scientist", "Data Analyst"]
   },
   {
     "filterName": "Job Status",
