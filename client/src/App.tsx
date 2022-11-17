@@ -37,7 +37,50 @@ function App() {
   }, []);
 
   // Filter jobs data whenever activeFilters is modified
-  //   useEffect(() => {}, [company, location, description, status]);
+  useEffect(() => {
+    fetch(URL)
+      .then((response) => {
+        return response.json();
+      })
+      .then((allData) => {
+        let newData: JobEntry[] = allData;
+
+        console.log(String(allData[4].status).toLowerCase());
+
+        // Now perform the filtering by applying the filter if it is not
+        // an empty string
+
+        if (location !== "") {
+          newData = allData.filter((job: JobEntry) => {
+            return job.locations.indexOf(location.toUpperCase()) !== -1;
+          });
+        }
+
+        if (company !== "") {
+          newData = allData.filter((job: JobEntry) => {
+            return job.companyName.toLowerCase() === company.toLowerCase();
+          });
+        }
+
+        if (description !== "") {
+          newData = allData.filter((job: JobEntry) => {
+            return job.description.includes(description.toLowerCase());
+          });
+        }
+
+        if (status !== "") {
+          newData = allData.filter((job: JobEntry) => {
+            return (
+              (job.status && status.toLowerCase() === "open") ||
+              (!job.status && status.toLowerCase() === "closed")
+            );
+          });
+        }
+
+        // Set the backendData (data displayed) if the result did not change
+        if (newData !== allData) setBackendData(newData);
+      });
+  }, [company, location, description, status]);
 
   return (
     <div id="body-container">

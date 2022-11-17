@@ -26,6 +26,10 @@ const FilterFrame = ({
   const [filterData, setFilterData] = useState<FilterData[]>([]);
 
   // Had to set local states of the filter
+  const [company, setCompany] = useState<string>("");
+  const [location, setLocation] = useState<string>("");
+  const [description, setDescription] = useState<string>("");
+  const [status, setStatus] = useState<string>("");
 
   // Change to be API endpoint when implemented
   const URL = "/Filters.json";
@@ -41,54 +45,13 @@ const FilterFrame = ({
       });
   }, []);
 
-  // Needs to set each of the filters and then filter
-  // the data on a NEW set of data
+  // Needs to set each of the App scale filters
   const handleSubmit = (e: any) => {
-    fetch(api)
-      .then((response) => {
-        return response.json();
-      })
-      .then((allData) => {
-        e.preventDefault();
-
-        let newData: JobEntry[] = allData;
-        let [companyName, location, jobDescription, jobStatus] = activeFilters;
-
-        console.log(String(allData[4].status).toLowerCase());
-
-        // Now perform the filtering by applying the filter if it is not
-        // an empty string
-
-        if (location !== "") {
-          newData = allData.filter((job: JobEntry) => {
-            return job.locations.indexOf(location.toUpperCase()) !== -1;
-          });
-        }
-
-        if (companyName !== "") {
-          newData = allData.filter((job: JobEntry) => {
-            return job.companyName.toLowerCase() === companyName.toLowerCase();
-          });
-        }
-
-        if (jobDescription !== "") {
-          newData = allData.filter((job: JobEntry) => {
-            return job.description.includes(jobDescription.toLowerCase());
-          });
-        }
-
-        if (jobStatus !== "") {
-          newData = allData.filter((job: JobEntry) => {
-            return (
-              (job.status && jobStatus.toLowerCase() === "open") ||
-              (!job.status && jobStatus.toLowerCase() === "closed")
-            );
-          });
-        }
-
-        // Set the backendData (data displayed) if the result did not change
-        if (newData !== allData) setBackendData(newData);
-      });
+    e.preventDefault();
+    activeFilterSetters[0](company);
+    activeFilterSetters[1](location);
+    activeFilterSetters[2](description);
+    activeFilterSetters[3](status);
   };
 
   return (
@@ -102,7 +65,15 @@ const FilterFrame = ({
                 <FilterDropdown
                   name={entry.filterName}
                   options={entry.options}
-                  setFilter={activeFilterSetters[i]}
+                  setFilter={
+                    i === 0
+                      ? setCompany
+                      : i === 1
+                      ? setLocation
+                      : i === 2
+                      ? setDescription
+                      : setStatus
+                  }
                 />
               </div>
             ))
