@@ -1,31 +1,36 @@
-import { useEffect, useState } from "react";
+import { resolve } from "path";
+import React, { useEffect, useState } from "react";
 import { FilterData } from "../Types/FilterData";
 import { JobEntry } from "../Types/JobEntry";
 import FilterDropdown from "./FilterDropdown";
 import "./FilterFrame.css";
 
+// Serves as the frame for the filtering component
+// This is to be used as the big picture component
+// that contains all other relevant components to filtering
+
 type Props = {
-  backendData: JobEntry[];
+  activeFilters: string[];
+  activeFilterSetters: React.Dispatch<React.SetStateAction<string>>[];
   setBackendData: React.Dispatch<React.SetStateAction<JobEntry[]>>;
+  api: string;
 };
 
-const FilterFrame = ({ backendData, setBackendData }: Props) => {
+const FilterFrame = ({
+  activeFilters,
+  activeFilterSetters,
+  setBackendData,
+  api,
+}: Props) => {
   // Get filters object from API here and then use each filter type to create our filters
   const [filterData, setFilterData] = useState<FilterData[]>([]);
 
-  const [companyName, setCompanyName] = useState<string>("");
-  const [location, setLocation] = useState<string>("");
-  const [jobDescription, setJobDescription] = useState<string>("");
-  const [jobStatus, setJobStatus] = useState<string>("");
+  // Had to set local states of the filter
 
+  // Change to be API endpoint when implemented
   const URL = "/Filters.json";
 
-  const jobNames: string[] = backendData.map((entry) => {
-    return entry.companyName;
-  });
-
-  console.log(jobNames);
-
+  // Gets the filter options for the dropdowns
   useEffect(() => {
     fetch(URL)
       .then((response) => {
@@ -36,35 +41,54 @@ const FilterFrame = ({ backendData, setBackendData }: Props) => {
       });
   }, []);
 
+  // Needs to set each of the filters and then filter
+  // the data on a NEW set of data
   const handleSubmit = (e: any) => {
-    e.preventDefault();
+    fetch(api)
+      .then((response) => {
+        return response.json();
+      })
+      .then((allData) => {
+        e.preventDefault();
 
-    let newData: JobEntry[] = backendData;
+        let newData: JobEntry[] = allData;
+        let [companyName, location, jobDescription, jobStatus] = activeFilters;
 
-    console.log(String(backendData[4].status).toLowerCase());
+        console.log(String(allData[4].status).toLowerCase());
 
-    if (location !== "") {
-      newData = backendData.filter((job) => {
-        return job.locations.indexOf(location.toUpperCase()) !== -1;
-      });
-    } else if (companyName !== "") {
-      newData = backendData.filter((job) => {
-        return job.companyName.toLowerCase() === companyName.toLowerCase();
-      });
-    } else if (jobDescription !== "") {
-      newData = backendData.filter((job) => {
-        return job.description.includes(jobDescription.toLowerCase());
-      });
-    } else if (jobStatus !== "") {
-      newData = backendData.filter((job) => {
-        return (
-          (job.status && jobStatus.toLowerCase() === "open") ||
-          (!job.status && jobStatus.toLowerCase() === "closed")
-        );
-      });
-    }
+        // Now perform the filtering by applying the filter if it is not
+        // an empty string
 
-    if (newData !== backendData) setBackendData(newData);
+        if (location !== "") {
+          newData = allData.filter((job: JobEntry) => {
+            return job.locations.indexOf(location.toUpperCase()) !== -1;
+          });
+        }
+
+        if (companyName !== "") {
+          newData = allData.filter((job: JobEntry) => {
+            return job.companyName.toLowerCase() === companyName.toLowerCase();
+          });
+        }
+
+        if (jobDescription !== "") {
+          newData = allData.filter((job: JobEntry) => {
+            return job.description.includes(jobDescription.toLowerCase());
+          });
+        }
+
+        if (jobStatus !== "") {
+          newData = allData.filter((job: JobEntry) => {
+            return (
+              (job.status && jobStatus.toLowerCase() === "open") ||
+              (!job.status && jobStatus.toLowerCase() === "closed")
+            );
+          });
+        }
+
+        // Set the backendData (data displayed) if the result did not change
+        if (newData !== allData) setBackendData(newData);
+      });
   };
 
   return (
@@ -77,17 +101,8 @@ const FilterFrame = ({ backendData, setBackendData }: Props) => {
                 <h3>{entry.filterName}</h3>
                 <FilterDropdown
                   name={entry.filterName}
-                  options={i === 0 ? jobNames : entry.options}
-                  formInput={
-                    i === 0
-                      ? setCompanyName
-                      : i === 1
-                      ? setLocation
-                      : i === 2
-                      ? setJobDescription
-                      : setJobStatus
-                  }
-                  backendData={backendData}
+                  options={entry.options}
+                  setFilter={activeFilterSetters[i]}
                 />
               </div>
             ))

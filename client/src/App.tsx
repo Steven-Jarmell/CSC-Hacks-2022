@@ -37,20 +37,22 @@ function App() {
   }, []);
 
   // Filter jobs data whenever activeFilters is modified
-  useEffect(() => {}, [company, location, description, status]);
+  //   useEffect(() => {}, [company, location, description, status]);
 
   return (
     <div id="body-container">
       <div className="job-postings-container">
         <div id="active-filters-container">
           {activeFilters.some(Boolean) ? (
-            activeFilters.map((filter, i) => (
-              <Filter
-                key={i}
-                filter={filter}
-                setFilter={activeFilterSetters[i]}
-              ></Filter>
-            ))
+            activeFilters.map((filter, i) =>
+              filter !== "" ? (
+                <Filter
+                  key={i}
+                  filter={filter}
+                  setFilter={activeFilterSetters[i]}
+                ></Filter>
+              ) : null
+            )
           ) : (
             <h3 className="job-postings-filter">No Filters Added</h3>
           )}
@@ -74,7 +76,12 @@ function App() {
             : "Loading..."}
         </div>
       </div>
-      <FilterFrame backendData={backendData} setBackendData={setBackendData} />
+      <FilterFrame
+        activeFilters={activeFilters}
+        activeFilterSetters={activeFilterSetters}
+        setBackendData={setBackendData}
+        api={URL}
+      />
     </div>
   );
 }
