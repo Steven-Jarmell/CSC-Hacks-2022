@@ -24,6 +24,8 @@ const FilterFrame = ({ backendData, setBackendData }: Props) => {
     return entry.companyName;
   });
 
+  console.log(jobNames);
+
   useEffect(() => {
     fetch(URL)
       .then((response) => {
@@ -66,9 +68,8 @@ const FilterFrame = ({ backendData, setBackendData }: Props) => {
   };
 
   return (
-    //TODO: Add endpoint for filter post request
     <div id="form-container">
-      <form action="" method="" id="filter-form" onSubmit={handleSubmit}>
+      <form id="filter-form" onSubmit={handleSubmit}>
         <h1 className="filter-title">Filter</h1>
         {filterData
           ? filterData.map((entry, i) => (
@@ -91,7 +92,6 @@ const FilterFrame = ({ backendData, setBackendData }: Props) => {
               </div>
             ))
           : "Loading Filters..."}
-
         <input type="submit" value="Search" id="form-submit" />
       </form>
     </div>

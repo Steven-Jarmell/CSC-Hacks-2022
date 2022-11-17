@@ -7,7 +7,21 @@ import "./App.css";
 
 function App() {
   const [backendData, setBackendData] = useState<JobEntry[]>([]);
-  const [activeFilters, setActiveFilters] = useState<string[]>([]);
+
+  // States for tracking what our set filter currently is
+  const [company, setCompany] = useState<string>("");
+  const [location, setLocation] = useState<string>("");
+  const [description, setDescription] = useState<string>("");
+  const [status, setStatus] = useState<string>("");
+
+  // Filter state set in array to make it easier to loop
+  let activeFilters = [company, location, description, status];
+  let activeFilterSetters = [
+    setCompany,
+    setLocation,
+    setDescription,
+    setStatus,
+  ];
 
   const URL = "http://localhost:5000/api/jobs";
 
@@ -23,21 +37,19 @@ function App() {
   }, []);
 
   // Filter jobs data whenever activeFilters is modified
-  useEffect(() => {}, [activeFilters]);
+  useEffect(() => {}, [company, location, description, status]);
 
   return (
     <div id="body-container">
       <div className="job-postings-container">
         <div id="active-filters-container">
-          {activeFilters ? (
-            activeFilters.map((name, i) => (
-              <React.Fragment key={i}>
-                <Filter
-                  name={name}
-                  setActiveFilters={setActiveFilters}
-                  activeFilters={activeFilters}
-                ></Filter>
-              </React.Fragment>
+          {activeFilters.some(Boolean) ? (
+            activeFilters.map((filter, i) => (
+              <Filter
+                key={i}
+                filter={filter}
+                setFilter={activeFilterSetters[i]}
+              ></Filter>
             ))
           ) : (
             <h3 className="job-postings-filter">No Filters Added</h3>
