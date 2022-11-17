@@ -24,11 +24,12 @@
 }
 
 .button-container:hover > .button-content {
-  transform: translateY(-36px);
+  transform: translateY(-42px);
 }
 
 .active-filter-item {
   font-size: 24px;
+  margin-bottom: 4px;
   text-transform: capitalize;
 }
 
