@@ -1,0 +1,39 @@
+.button-container {
+  background-color: var(--blue);
+  height: 36px;
+  width: auto;
+  color: white;
+  display: inline-block;
+  padding: 5px 20px;
+  margin: 8px 10px;
+  border-radius: 5px;
+  transition: all 0.05s ease-in-out;
+  overflow: hidden;
+  align-items: center;
+}
+
+.button-container:hover {
+  background-color: var(--red);
+  color: black;
+  cursor: pointer;
+}
+
+.button-content {
+  box-sizing: border-box;
+  transition: all 0.2s ease-in-out;
+}
+
+.button-container:hover > .button-content {
+  transform: translateY(-42px);
+}
+
+.active-filter-item {
+  font-size: 24px;
+  margin-bottom: 4px;
+  text-transform: capitalize;
+}
+
+.close-button {
+  font-size: 24px;
+  text-align: center;
+}

@@ -32,4 +32,14 @@ router.route("/add").post((req, res) => {
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
+router.route("/filter").post((req, res) => {
+  // Get POST request query parameters
+  const companyName = req.query.name;
+  const locations = req.query.location; // need to use $regex in the query
+  const description = req.query.description;
+  const status = req.query.status;
+
+  // Get all of the job postings that match
+});
+
 export default router;

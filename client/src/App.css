@@ -11,6 +11,7 @@
   --black: #000000;
   --job-posting-container-background: #d2d2d2;
   --job-posting: #d9d9d9;
+  --red: #f01e2c;
 }
 
 html,
@@ -75,6 +76,21 @@ body {
   text-align: center;
   padding: 0;
   margin: 0;
+  font-size: 25px;
+}
+
+#active-filters-container {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  justify-content: flex-start;
   border-bottom: 1px solid var(--black);
+}
+
+.job-postings-filter {
+  text-align: center;
+  /* Make sure these match the margin and padding of button-container class */
+  padding: 5px 20px;
+  margin: 8px 10px;
   font-size: 25px;
 }
