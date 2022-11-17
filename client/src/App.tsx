@@ -50,26 +50,30 @@ function App() {
         // Now perform the filtering by applying the filter if it is not
         // an empty string
 
+        console.log(newData);
+
         if (location !== "") {
-          newData = allData.filter((job: JobEntry) => {
+          newData = newData.filter((job: JobEntry) => {
             return job.locations.indexOf(location.toUpperCase()) !== -1;
           });
         }
 
         if (company !== "") {
-          newData = allData.filter((job: JobEntry) => {
+          newData = newData.filter((job: JobEntry) => {
             return job.companyName.toLowerCase() === company.toLowerCase();
           });
         }
 
         if (description !== "") {
-          newData = allData.filter((job: JobEntry) => {
-            return job.description.includes(description.toLowerCase());
+          newData = newData.filter((job: JobEntry) => {
+            return job.description
+              .toLowerCase()
+              .includes(description.toLowerCase());
           });
         }
 
         if (status !== "") {
-          newData = allData.filter((job: JobEntry) => {
+          newData = newData.filter((job: JobEntry) => {
             return (
               (job.status && status.toLowerCase() === "open") ||
               (!job.status && status.toLowerCase() === "closed")
@@ -78,7 +82,7 @@ function App() {
         }
 
         // Set the backendData (data displayed) if the result did not change
-        if (newData !== allData) setBackendData(newData);
+        if (newData !== backendData) setBackendData(newData);
       });
   }, [company, location, description, status]);
 
